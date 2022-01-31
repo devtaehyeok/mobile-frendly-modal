@@ -1,6 +1,9 @@
 import { X } from "react-feather";
 import styled from "styled-components";
-
+import {
+  DialogOverlay,
+  DialogContent
+} from "@reach/dialog";
 /*
   This value is provided for your convenience.
   If you'd like, you can use it in your media
@@ -23,7 +26,7 @@ function Modal({
 
   return (
     <Overlay>
-      <Content>
+      <Content area-label={title}>
         <Header>
           <Title>{title}</Title>
           <CloseButton onClick={handleDismiss}>
@@ -39,7 +42,7 @@ function Modal({
   );
 }
 
-const Overlay = styled.div`
+const Overlay = styled(DialogOverlay)`
   position: fixed;
   top: 0;
   left: 0;
@@ -51,7 +54,7 @@ const Overlay = styled.div`
   align-items: center;
 `;
 
-const Content = styled.div`
+const Content = styled(DialogContent)`
   position: relative;
   background: white;
   border-radius: 8px;
